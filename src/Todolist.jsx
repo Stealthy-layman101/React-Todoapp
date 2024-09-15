@@ -5,59 +5,50 @@ import Bgmobiledark from "./assets/Bgmobiledark.jpg";
 import Moonicon from "./assets/Moonicon.svg";
 import Crossicon from "./assets/Crossicon.svg";
 import Sunicon from "./assets/Sunicon.svg";
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { v4 as uuidv4 } from 'uuid';
 
 function Todolist() {
   const [tasks, setTasks] = useState([
-    "Complete online JavaScript course",
-    "Jog around the park 3s",
-    "10 minutes meditation",
-    "Read for 1 hour",
-    "Pick up groceries",
-    "Complete Todo app on Frontend Mentor",
+    { id: uuidv4(), text: "Complete online JavaScript course"},
+    { id: uuidv4(), text: "Jog around the park 3s"},
+    { id: uuidv4(), text: "10 minutes meditation"},
+    { id: uuidv4(), text: "Read for 1 hour"},
+    { id: uuidv4(), text: "Pick up groceries"},
+    { id: uuidv4(), text: "Complete Todo app on Frontend Mentor"},
   ]);
 
   const [completedTasks, setCompletedTasks] = useState([]);
 
-  const [completedTaskNo, setCompletedTaskNo] = useState(0);
-
   const [newTask, setNewTask] = useState("");
 
   const [radioSelected, setRadioSelected] = useState(false); // Manages radio button state
-
-  const [taskNo, setTaskNo] = useState(5);
 
   const [changeColor, setChangeColor] = useState(false);
 
   // add task to list
   function addTask() {
     if (newTask.trim() !== "") {
-      setTasks([...tasks, newTask]); // Add the new task to the list
+      const newTaskObject = { id: tasks.length +1, text: newTask}
+      setTasks([...tasks, newTaskObject]); // Add the new task to the list
       document.getElementById("task-input").value = ''; // clear input field after adding
       setRadioSelected(false); 
       setTaskNo(tasks.length+1);
     }
   }
 
-  function removeTask(taskToRemove) {
-    setTasks(tasks.filter(task => task !== taskToRemove));  // Filter out the task to be removed
+  function removeTask(taskId) {
+    setTasks(tasks.filter(task => task.id !== taskId));  // Filter out the task to be removed
     setTaskNo(tasks.length-1);
   }
 
-  function checkTask(completeTask, index) {
-    const removedCompleteTask = tasks[index];
-    completedTasks.push(removedCompleteTask);
-
-    // Get the task list items
-    const taskList = document.getElementById("task-list").children;
-
-    // Apply the strikethrough style to the completed task
-    taskList[index].style.textDecoration = "line-through";
-
-    setCompletedTaskNo(completedTasks.length);
-    console.log(completedTasks);
-
-/*     document.getElementById("check-input").style.pointerEvents = "none"; */
+  function checkTask(taskId) {
+    const taskToComplete = tasks.find(task => task.id === taskId);
+    if (taskToComplete) {
+      setCompletedTasks([...completedTasks, taskToComplete]);
+      setTasks(tasks.filter(task => task.id !== taskId)); // Remove the completed task from the list
+      setCompletedTaskNo(completedTasks.length+1);
+      setTaskNo(tasks.length-1);
+    }
   }
 
   function showComplete(){
@@ -76,7 +67,6 @@ function Todolist() {
 
   function clearCompletedList(){
     setCompletedTasks([]);
-    setCompletedTaskNo(0);
   }
 
   function darkTheme(){
@@ -96,16 +86,6 @@ function Todolist() {
     document.body.style.backgroundColor = "hsl(236, 33%, 92%)";
     setChangeColor(!changeColor);
   }
-
-  const handleOnDragEnd = (result) => {
-    if (!result.destination) return; // If dropped outside the list
-
-    const reorderedTasks = Array.from(tasks);
-    const [movedTask] = reorderedTasks.splice(result.source.index, 1);
-    reorderedTasks.splice(result.destination.index, 0, movedTask);
-
-    setTasks(reorderedTasks);
-  };
 
   // Function to handle the radio input change
   const handleRadioChange = () => {
@@ -132,41 +112,46 @@ function Todolist() {
         </div>
         <div className="tasks-div">
         <ul id="completed-task-list" className="list-group completed-task-list">
-            {completedTasks.map((completedtask, index) => (<li 
+            {completedTasks.map((completedtask) => (<li 
              style={{ backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '',
               color: changeColor ? 'hsl(234, 39%, 85%)' : ''
              }}
-            id="main-completed-task" className="font-weight-bold list-item p-3 list-group-item" key={index}>{completedtask}</li>))} 
+            id="main-completed-task" className="font-weight-bold list-item p-3 list-group-item" key={completedtask.id}>{completedtask.text}</li>))} 
               <li style={{ backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '',
                 color: changeColor ? 'hsl(234, 39%, 85%)' : ''
-               }} className="list-item2 font-weight-bold p-3 list-group-item">{completedTaskNo} tasks completed <span onClick={clearCompletedList} className="clear-span">Clear list</span> </li>
+               }} className="list-item2 font-weight-bold p-3 list-group-item">{completedTasks.length} tasks completed <span onClick={clearCompletedList} className="clear-span">Clear list</span> </li>
         </ul>
         <ul id="task-list" className="list-group task-list">
-            {tasks.map((task, index) => (<li id="main-task" className="font-weight-bold list-item p-3 list-group-item" key={index}
-             // Conditionally apply background color
-             style={{ backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '',
-              color: changeColor ? 'hsl(234, 39%, 85%)' : ''
-              }}
-            >{task}    
-              <input id="check-input" onClick={() => checkTask(task, index)} className = " position-sticky check-input" type="radio" />
-                  <img onClick={(e) => { 
-                    e.stopPropagation();
-                    removeTask(task)}} className="position-sticky cross-img" src={Crossicon} alt="cross-icon" /></li>))} 
-              <li style={{ backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '',
-                color: changeColor ? 'hsl(234, 39%, 85%)' : ''
-               }} className="list-item2 font-weight-bold p-3 list-group-item">{taskNo} items left <span className="clear-span">Clear completed</span> </li>
-        </ul>
+  {tasks.map((task) => (
+    <li id="main-task" className="font-weight-bold list-item list-group-item" key={task.id}
+      style={{ 
+        backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '',
+        color: changeColor ? 'hsl(234, 39%, 85%)' : ''
+      }}>
+      <input id="check-input" onClick={() => checkTask(task.id)} className="check-input" type="radio" />
+      <span>{task.text}</span>
+      <img onClick={(e) => { 
+          e.stopPropagation();
+          removeTask(task.id)
+        }} className="cross-img" src={Crossicon} alt="cross-icon" />
+    </li>
+  ))}
+  <li style={{ 
+      backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '',
+      color: changeColor ? 'hsl(234, 39%, 85%)' : ''
+    }} className="list-item2 font-weight-bold p-3 list-group-item">
+    {tasks.length} items left
+  </li>
+</ul>
         <div style={{ backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '',
                 color: changeColor ? 'hsl(234, 39%, 85%)' : ''
                }} className="rounded position-relative task-status">
           <p id="all-status" onClick={showAll} className="stat-1">All</p>
-          <p className="stat-2">Active</p>
           <p id="complete-status" onClick={showComplete} className="stat-3">Completed</p>
         </div>
-        <p>Wait</p>
         <p style={{ 
                 color: changeColor ? 'hsl(234, 39%, 85%)' : ''
-               }} className="position-relative drag-p">Drag and drop to reorder list</p>
+               }} className="position-relative drag-p">Click circle to move task to completed</p>
         </div> 
       </div>
     </>

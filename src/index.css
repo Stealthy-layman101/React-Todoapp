@@ -17,17 +17,20 @@ body{
 }
 
 .task-input-div{
+    cursor: pointer;
     padding: 10px 0px 10px 10px;
     bottom: 5rem;
     background-color: white;
 }
 
 .moon-icon, .sun-icon{
+    cursor: pointer;
     top: 3rem;
     left: 21rem; 
 }
 
 .radio-input{
+    cursor: pointer;
     position: relative;
     top: 3px;
     left: 2px;
@@ -39,11 +42,20 @@ body{
 }
 
 .check-input{
-    right: 25rem;
+    cursor: pointer;
+    margin-left: 8px;
+    margin-right: 10px;
+    /* right: 25rem; */
 }
 
 .list-item{
-    text-indent: 20px;
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    padding-left: 0;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .list-item, .task-status, .list-item2{
@@ -51,10 +63,12 @@ body{
 }
 
 .cross-img{
-    left: 20rem;
+    margin-left: auto;
+    cursor: pointer;
 }
 
 .task-status{
+    cursor: pointer;
     background-color: white;
     font-weight: 500;
     display: flex;
@@ -63,22 +77,22 @@ body{
 }
 
 .clear-span{
+    cursor: pointer;
     margin-left: 5.3rem;
 }
 
 .stat-1{
-    margin-left: 5rem;
+    margin-left: 6rem;
     padding-right: 1rem;
 }
 
-.stat-2{
-    padding-right: 1rem;
-    padding-left: 5px;
+.stat-3{
+    margin-left: 2rem;
 }
 
 .drag-p{
     top: 3rem;
-    left: 4rem;
+    text-align: center;
 }
 
 /* to prevent someone adding a task to completed list twice */

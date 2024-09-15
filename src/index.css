@@ -14,6 +14,7 @@ body{
 
 .bg-light-mobile, .bg-dark-mobile{
     z-index: 1;
+    width: 100vw;
 }
 
 .task-input-div{
@@ -82,7 +83,7 @@ body{
 }
 
 .stat-1{
-    margin-left: 6rem;
+    margin-left: 7rem;
     padding-right: 1rem;
 }
 

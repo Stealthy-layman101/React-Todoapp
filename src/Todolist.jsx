@@ -163,6 +163,7 @@ function Todolist() {
           <p className="stat-2">Active</p>
           <p id="complete-status" onClick={showComplete} className="stat-3">Completed</p>
         </div>
+        <p>Wait</p>
         <p style={{ 
                 color: changeColor ? 'hsl(234, 39%, 85%)' : ''
                }} className="position-relative drag-p">Drag and drop to reorder list</p>

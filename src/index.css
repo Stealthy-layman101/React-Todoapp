@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Josefin Sans";
+    background-color: hsl(236, 33%, 92%);
+    font-size: 18px;
+}
+
+.bg-light-mobile, .bg-dark-mobile{
+    z-index: 1;
+}
+
+.task-input-div{
+    padding: 10px 0px 10px 10px;
+    bottom: 5rem;
+    background-color: white;
+}
+
+.moon-icon, .sun-icon{
+    top: 3rem;
+    left: 21rem; 
+}
+
+.radio-input{
+    position: relative;
+    top: 3px;
+    left: 2px;
+}
+
+.tasks-div{
+    position: relative;
+    bottom: 4rem;
+}
+
+.check-input{
+    right: 25rem;
+}
+
+.list-item{
+    text-indent: 20px;
+}
+
+.list-item, .task-status, .list-item2{
+    color: hsl(235, 19%, 35%);
+}
+
+.cross-img{
+    left: 20rem;
+}
+
+.task-status{
+    background-color: white;
+    font-weight: 500;
+    display: flex;
+    top: 25px;
+    padding: 15px 1px 0px 1px;
+}
+
+.clear-span{
+    margin-left: 5.3rem;
+}
+
+.stat-1{
+    margin-left: 5rem;
+    padding-right: 1rem;
+}
+
+.stat-2{
+    padding-right: 1rem;
+    padding-left: 5px;
+}
+
+.drag-p{
+    top: 3rem;
+    left: 4rem;
+}
+
+/* to prevent someone adding a task to completed list twice */
+.check-input:checked {
+    pointer-events: none;
+  }
+
+.completed-task-list, .sun-icon, .bg-dark-mobile{
+    display: none;
+}

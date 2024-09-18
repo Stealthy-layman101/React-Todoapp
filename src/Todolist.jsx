@@ -116,9 +116,11 @@ function Todolist() {
 
   return (
     <>
-      <h1 className="pt-5 ps-3 position-absolute text-light todo">T O D O</h1>
-      <img id="moon-icon" onClick={darkTheme} className="position-absolute moon-icon" src={Moonicon} alt="moon" />
-      <img onClick={lightTheme} id="sun-icon" className="position-absolute sun-icon" src={Sunicon} alt="moon" />
+    <div className="icons">
+      <h1 className="text-light todo">T O D O</h1>
+      <img id="moon-icon" onClick={darkTheme} className="moon-icon" src={Moonicon} alt="moon" />
+      <img onClick={lightTheme} id="sun-icon" className="sun-icon" src={Sunicon} alt="moon" />
+      </div>
       <img id="bg-dark-desktop" className="bg-dark-desktop" src={Bgdarkdesktop} alt="bg-desktop-dark" />
       <img id="bg-light-desktop" className="bg-light-desktop" src={bg} alt="bg-desktop-light" />
       <img id="bg-dark-mobile" className="bg-dark-mobile" src={Bgmobiledark} alt="bg-dark-mobile" />

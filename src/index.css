@@ -12,9 +12,25 @@ body{
     font-size: 18px;
 }
 
+.completed-task-list, .sun-icon, .bg-dark-mobile, .bg-light-desktop, .bg-dark-desktop{
+    display: none;
+}
+
 .bg-light-mobile, .bg-dark-mobile{
     z-index: 1;
     width: 100vw;
+    margin-top: -3rem;
+}
+
+.icons{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    top: 3rem;
+    padding: 0 1rem;
 }
 
 .task-input-div{
@@ -22,12 +38,6 @@ body{
     padding: 10px 0px 10px 10px;
     bottom: 5rem;
     background-color: white;
-}
-
-.moon-icon, .sun-icon{
-    cursor: pointer;
-    top: 3rem;
-    left: 21rem; 
 }
 
 .radio-input{
@@ -84,7 +94,6 @@ body{
     margin-left: 5.3rem;
 }
 
-
 .drag-p{
     top: 3rem;
     text-align: center;
@@ -94,10 +103,6 @@ body{
 .check-input:checked {
     pointer-events: none;
   }
-
-.completed-task-list, .sun-icon, .bg-dark-mobile, .bg-light-desktop, .bg-dark-desktop{
-    display: none;
-}
 
 @media only screen and (min-width: 1024px) {
     body{
@@ -111,31 +116,32 @@ body{
     .bg-light-desktop{
         display: flex;
         width: 100vw;
+        margin-top: -4rem;
     }
 
     .bg-dark-desktop{
         width: 100vw;
+        margin-top: -4rem;
     }
 
     .task-input-div, .tasks-div{
         width: 30vw;
         margin-left: auto;
         margin-right: auto;
-        bottom: 8rem;
     }
 
     .tasks-div{
-        bottom: 6rem;
+        bottom: 4rem;
     }
 
-    .todo{
-        top: 4.5rem;
-        left: 32rem;
+    .moon-icon{
+        width: 30px;
+        height: 30px;
     }
 
-    .moon-icon, .sun-icon{
+    .icons{
+        justify-content: space-evenly;
         top: 8rem;
-        left: 60rem;
     }
 
     .clear-span{

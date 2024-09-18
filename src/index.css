@@ -46,7 +46,6 @@ body{
     cursor: pointer;
     margin-left: 8px;
     margin-right: 10px;
-    /* right: 25rem; */
 }
 
 .list-item{
@@ -69,12 +68,15 @@ body{
 }
 
 .task-status{
+    display: flex;
+    justify-content: space-evenly;
     cursor: pointer;
     background-color: white;
     font-weight: 500;
     display: flex;
     top: 25px;
     padding: 15px 1px 0px 1px;
+    text-align: center;
 }
 
 .clear-span{
@@ -82,14 +84,6 @@ body{
     margin-left: 5.3rem;
 }
 
-.stat-1{
-    margin-left: 7rem;
-    padding-right: 1rem;
-}
-
-.stat-3{
-    margin-left: 2rem;
-}
 
 .drag-p{
     top: 3rem;
@@ -101,6 +95,50 @@ body{
     pointer-events: none;
   }
 
-.completed-task-list, .sun-icon, .bg-dark-mobile{
+.completed-task-list, .sun-icon, .bg-dark-mobile, .bg-light-desktop, .bg-dark-desktop{
     display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .bg-light-mobile, .bg-dark-mobile{
+        display: none;
+    }
+
+    .bg-light-desktop{
+        display: flex;
+        width: 100vw;
+    }
+
+    .bg-dark-desktop{
+        width: 100vw;
+    }
+
+    .task-input-div, .tasks-div{
+        width: 30vw;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 8rem;
+    }
+
+    .tasks-div{
+        bottom: 6rem;
+    }
+
+    .todo{
+        top: 4.5rem;
+        left: 32rem;
+    }
+
+    .moon-icon, .sun-icon{
+        top: 8rem;
+        left: 60rem;
+    }
+
+    .clear-span{
+        margin-left: 12.5rem;
+    }
 }

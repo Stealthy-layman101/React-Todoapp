@@ -5,6 +5,8 @@ import Bgmobiledark from "./assets/Bgmobiledark.jpg";
 import Moonicon from "./assets/Moonicon.svg";
 import Crossicon from "./assets/Crossicon.svg";
 import Sunicon from "./assets/Sunicon.svg";
+import bg from "./assets/bg.jpg"
+import Bgdarkdesktop from "./assets/Bgdesktopdark.jpg"
 import { v4 as uuidv4 } from 'uuid';
 
 function Todolist() {
@@ -70,21 +72,40 @@ function Todolist() {
   }
 
   function darkTheme(){
+    if(window.innerWidth<=400){
     document.getElementById("bg-light-mobile").style.display = "none";
     document.getElementById("bg-dark-mobile").style.display = "block";
     document.getElementById("sun-icon").style.display = "block"
     document.getElementById("moon-icon").style.display = "none";
     document.body.style.backgroundColor = "hsl(235, 21%, 11%)";
     setChangeColor(!changeColor);
+    }else{
+      document.getElementById("bg-light-desktop").style.display = "none";
+      document.getElementById("bg-dark-desktop").style.display = "block";
+      document.getElementById("sun-icon").style.display = "block"
+      document.getElementById("moon-icon").style.display = "none";
+      document.body.style.backgroundColor = "hsl(235, 21%, 11%)";
+      setChangeColor(!changeColor);
+    }
   }
 
   function lightTheme(){
+    if(window.innerWidth<=400){
     document.getElementById("bg-light-mobile").style.display = "block";
     document.getElementById("bg-dark-mobile").style.display = "none";
     document.getElementById("sun-icon").style.display = "none"
     document.getElementById("moon-icon").style.display = "block";
     document.body.style.backgroundColor = "hsl(236, 33%, 92%)";
     setChangeColor(!changeColor);
+    }
+    else{
+      document.getElementById("bg-light-desktop").style.display = "block";
+      document.getElementById("bg-dark-desktop").style.display = "none";
+      document.getElementById("sun-icon").style.display = "none"
+      document.getElementById("moon-icon").style.display = "block";
+      document.body.style.backgroundColor = "hsl(236, 33%, 92%)";
+      setChangeColor(!changeColor);
+    }
   }
 
   // Function to handle the radio input change
@@ -95,9 +116,11 @@ function Todolist() {
 
   return (
     <>
-      <h1 className="pt-5 ps-3 position-absolute text-light">T O D O</h1>
+      <h1 className="pt-5 ps-3 position-absolute text-light todo">T O D O</h1>
       <img id="moon-icon" onClick={darkTheme} className="position-absolute moon-icon" src={Moonicon} alt="moon" />
       <img onClick={lightTheme} id="sun-icon" className="position-absolute sun-icon" src={Sunicon} alt="moon" />
+      <img id="bg-dark-desktop" className="bg-dark-desktop" src={Bgdarkdesktop} alt="bg-desktop-dark" />
+      <img id="bg-light-desktop" className="bg-light-desktop" src={bg} alt="bg-desktop-light" />
       <img id="bg-dark-mobile" className="bg-dark-mobile" src={Bgmobiledark} alt="bg-dark-mobile" />
       <img id="bg-light-mobile" className="bg-light-mobile" src={Bgmobilelight} alt="light-mobile-background" /> 
       <div className="container">

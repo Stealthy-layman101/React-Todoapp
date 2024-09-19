@@ -12,14 +12,13 @@ body{
     font-size: 18px;
 }
 
-.completed-task-list, .sun-icon, .bg-dark-mobile, .bg-light-desktop, .bg-dark-desktop{
+.completed-task-list, .sun-icon, .bg-light-desktop, .bg-dark-desktop, .bg-dark-mobile{
     display: none;
 }
 
 .bg-light-mobile, .bg-dark-mobile{
-    z-index: 1;
     width: 100vw;
-    margin-top: -3rem;
+    z-index: -1;
 }
 
 .icons{
@@ -31,6 +30,7 @@ body{
     justify-content: space-between;
     top: 3rem;
     padding: 0 1rem;
+    height: 50px;
 }
 
 .task-input-div{
@@ -134,9 +134,11 @@ body{
         bottom: 4rem;
     }
 
-    .moon-icon{
+    .moon-icon, .sun-icon{
+        cursor: pointer;
         width: 30px;
         height: 30px;
+        margin-left: -12rem;
     }
 
     .icons{

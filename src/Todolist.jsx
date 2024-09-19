@@ -72,14 +72,19 @@ function Todolist() {
   }
 
   function darkTheme(){
+    //handle theme for mobile view
     if(window.innerWidth<=400){
     document.getElementById("bg-light-mobile").style.display = "none";
+    document.getElementById("bg-light-desktop").style.display = "none";
+    document.getElementById("bg-dark-desktop").style.display = "none";
     document.getElementById("bg-dark-mobile").style.display = "block";
     document.getElementById("sun-icon").style.display = "block"
     document.getElementById("moon-icon").style.display = "none";
     document.body.style.backgroundColor = "hsl(235, 21%, 11%)";
     setChangeColor(!changeColor);
     }else{
+      document.getElementById("bg-light-mobile").style.display = "none";
+      document.getElementById("bg-dark-mobile").style.display = "none";
       document.getElementById("bg-light-desktop").style.display = "none";
       document.getElementById("bg-dark-desktop").style.display = "block";
       document.getElementById("sun-icon").style.display = "block"
@@ -91,6 +96,8 @@ function Todolist() {
 
   function lightTheme(){
     if(window.innerWidth<=400){
+    document.getElementById("bg-light-desktop").style.display = "none";
+    document.getElementById("bg-dark-desktop").style.display = "none";
     document.getElementById("bg-light-mobile").style.display = "block";
     document.getElementById("bg-dark-mobile").style.display = "none";
     document.getElementById("sun-icon").style.display = "none"
@@ -99,6 +106,8 @@ function Todolist() {
     setChangeColor(!changeColor);
     }
     else{
+      document.getElementById("bg-light-mobile").style.display = "none";
+      document.getElementById("bg-dark-mobile").style.display = "none";
       document.getElementById("bg-light-desktop").style.display = "block";
       document.getElementById("bg-dark-desktop").style.display = "none";
       document.getElementById("sun-icon").style.display = "none"
@@ -123,8 +132,8 @@ function Todolist() {
       </div>
       <img id="bg-dark-desktop" className="bg-dark-desktop" src={Bgdarkdesktop} alt="bg-desktop-dark" />
       <img id="bg-light-desktop" className="bg-light-desktop" src={bg} alt="bg-desktop-light" />
-      <img id="bg-dark-mobile" className="bg-dark-mobile" src={Bgmobiledark} alt="bg-dark-mobile" />
-      <img id="bg-light-mobile" className="bg-light-mobile" src={Bgmobilelight} alt="light-mobile-background" /> 
+      <img style={{marginTop: "-4rem"}} id="bg-dark-mobile" className="bg-dark-mobile" src={Bgmobiledark} alt="bg-dark-mobile" />
+      <img style={{marginTop: "-4rem"}}  id="bg-light-mobile" className="bg-light-mobile" src={Bgmobilelight} alt="light-mobile-background" /> 
       <div className="container">
         <div style={{ backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '' }} id="task-input-div" className="position-relative border rounded task-input-div">
         <input style={{ backgroundColor: changeColor ? 'hsl(235, 24%, 19%)' : '' }} id="task-add-input" checked={radioSelected} onChange={handleRadioChange} className="radio-input" type="radio"></input>

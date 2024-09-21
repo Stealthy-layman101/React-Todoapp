@@ -20,7 +20,7 @@ body{
 
 .bg-light-mobile, .bg-dark-mobile{
     width: 100vw;
-    height: 35vh;
+ /*    height: 35vh; */
     z-index: -1;
 }
 
@@ -39,7 +39,7 @@ body{
 .task-input-div{
     cursor: pointer;
     padding: 10px 0px 10px 10px;
-    top: -6rem;
+    top: -2.5rem;
     background-color: white;
 }
 
@@ -52,7 +52,7 @@ body{
 
 .tasks-div{
     position: relative;
-    top: -5rem;
+    top: -2rem;
 }
 
 .check-input{
@@ -142,7 +142,7 @@ body{
 
     .icons{
         justify-content: space-evenly;
-        top: 5rem;
+        top: 7rem;
     }
 
     .clear-span{

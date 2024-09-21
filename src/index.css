@@ -10,19 +10,24 @@ body{
     font-family: "Josefin Sans";
     background-color: hsl(236, 33%, 92%);
     font-size: 18px;
+    overflow: hidden;
 }
+
 
 .completed-task-list, .sun-icon, .bg-light-desktop, .bg-dark-desktop, .bg-dark-mobile{
     display: none;
 }
 
 .bg-light-mobile, .bg-dark-mobile{
+/*     position: absolute;
+    top: 0; */
     width: 100vw;
+    height: 35vh;
     z-index: -1;
 }
 
 .icons{
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -36,7 +41,7 @@ body{
 .task-input-div{
     cursor: pointer;
     padding: 10px 0px 10px 10px;
-    bottom: 5rem;
+    top: -6rem;
     background-color: white;
 }
 
@@ -49,7 +54,7 @@ body{
 
 .tasks-div{
     position: relative;
-    bottom: 4rem;
+    top: -5rem;
 }
 
 .check-input{
@@ -130,10 +135,6 @@ body{
         margin-right: auto;
     }
 
-    .tasks-div{
-        bottom: 4rem;
-    }
-
     .moon-icon, .sun-icon{
         cursor: pointer;
         width: 30px;
@@ -143,7 +144,7 @@ body{
 
     .icons{
         justify-content: space-evenly;
-        top: 8rem;
+        top: 5rem;
     }
 
     .clear-span{

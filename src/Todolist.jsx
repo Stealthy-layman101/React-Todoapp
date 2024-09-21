@@ -81,7 +81,7 @@ function Todolist() {
     document.getElementById("sun-icon").style.display = "block"
     document.getElementById("moon-icon").style.display = "none";
     document.body.style.backgroundColor = "hsl(235, 21%, 11%)";
-    document.body.style.overflow = "hidden";
+    document.body.style.overflowX = "hidden";
     setChangeColor(!changeColor);
     }else{
       document.getElementById("bg-light-mobile").style.display = "none";
@@ -104,7 +104,7 @@ function Todolist() {
     document.getElementById("sun-icon").style.display = "none"
     document.getElementById("moon-icon").style.display = "block";
     document.body.style.backgroundColor = "hsl(236, 33%, 92%)";
-    document.body.style.overflow = "hidden"
+    document.body.style.overflowX = "hidden"
     setChangeColor(!changeColor);
     }
     else{

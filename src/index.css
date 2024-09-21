@@ -10,7 +10,7 @@ body{
     font-family: "Josefin Sans";
     background-color: hsl(236, 33%, 92%);
     font-size: 18px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -19,8 +19,6 @@ body{
 }
 
 .bg-light-mobile, .bg-dark-mobile{
-/*     position: absolute;
-    top: 0; */
     width: 100vw;
     height: 35vh;
     z-index: -1;

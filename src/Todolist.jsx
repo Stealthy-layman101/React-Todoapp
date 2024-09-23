@@ -73,7 +73,7 @@ function Todolist() {
 
   function darkTheme(){
     //handle theme for mobile view
-    if(window.innerWidth<=400){
+    if(window.innerWidth<=1440){
     document.getElementById("bg-light-mobile").style.display = "none";
     document.getElementById("bg-light-desktop").style.display = "none";
     document.getElementById("bg-dark-desktop").style.display = "none";
@@ -96,7 +96,7 @@ function Todolist() {
   }
 
   function lightTheme(){
-    if(window.innerWidth<=400){
+    if(window.innerWidth<=1440){
     document.getElementById("bg-light-desktop").style.display = "none";
     document.getElementById("bg-dark-desktop").style.display = "none";
     document.getElementById("bg-light-mobile").style.display = "block";
